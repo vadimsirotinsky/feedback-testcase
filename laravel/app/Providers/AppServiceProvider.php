@@ -22,10 +22,6 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(IFeedbackProcessorFactory::class, function () {
             return new FeedbackProcessorFactory();
         });
-
-        //$this->app->bind(Ш::class, ImplementationsGoogleDriveImageManagement::class);
-        //$this->app->bind(IFeedbackService::class, FeedbackService::class);
-        //$this->app->bind(IFeedbackProcessorFactory::class, FeedbackProcessorFactory::class);
     }
 
     /**
