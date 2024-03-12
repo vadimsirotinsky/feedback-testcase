@@ -4,7 +4,7 @@ namespace App\Application\Factories;
 
 use App\Application\Interfaces\IFeedbackProcessor;
 use App\Application\Interfaces\IFeedbackProcessorFactory;
-use App\Application\Enums\FeedbackChannelType;
+use App\Application\Enums\FeedbackChannel;
 use App\Exceptions\IncorrectFeedbackChannel;
 use App\Infrastructure\Email\EmailFeedbackProcessor;
 use App\Infrastructure\LocalStorage\FileFeedbackProcessor;
@@ -12,14 +12,14 @@ use App\Infrastructure\Telegram\TelegramFeedbackProcessor;
 
 class FeedbackProcessorFactory implements IFeedbackProcessorFactory
 {
-    public function create(?FeedbackChannelType $channel) : IFeedbackProcessor
+    public function create(?FeedbackChannel $channel) : IFeedbackProcessor
     {
         switch ($channel) {
-            case FeedbackChannelType::Telegram:
+            case FeedbackChannel::Telegram:
                 return new TelegramFeedbackProcessor();
-            case FeedbackChannelType::File:
+            case FeedbackChannel::File:
                 return new FileFeedbackProcessor();
-            case FeedbackChannelType::Email:
+            case FeedbackChannel::Email:
                 return new EmailFeedbackProcessor();
             default:
                 throw new IncorrectFeedbackChannel('Unknown processor type');

@@ -2,7 +2,7 @@
 
 namespace App\Application\Enums;
 
-enum FeedbackChannelType: string
+enum FeedbackChannel: string
 {
     case Telegram = 'tg';
     case Email = 'email';

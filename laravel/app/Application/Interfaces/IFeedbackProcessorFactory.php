@@ -2,9 +2,9 @@
 
 namespace App\Application\Interfaces;
 
-use App\Application\Enums\FeedbackChannelType;
+use App\Application\Enums\FeedbackChannel;
 
 interface IFeedbackProcessorFactory
 {
-    public function create(?FeedbackChannelType $channel) : IFeedbackProcessor;
+    public function create(?FeedbackChannel $channel) : IFeedbackProcessor;
 }
