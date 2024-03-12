@@ -1,0 +1,21 @@
+version: "3"
+
+services:
+  feedback-backend:
+    build:
+      context: ./laravel
+      dockerfile: ./Dockerfile
+    image: feedback-back
+    ports:
+      - "9002:80"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+  feedback-frontend:
+    build:
+      context: ./quasar-project
+      dockerfile: ./Dockerfile
+    image: feedback-front
+    ports:
+      - "80:80"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
